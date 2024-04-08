@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:12:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/02 18:24:26 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/07 17:48:53 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ int main(int ac, char **av)
     mystack *b = NULL;
     int i = 0;
 
-    // atexit(f);
+    atexit(f);
+    if (ac == 1 || !av[1][0])
+        return(1);
     if (ac == 2)
     {
         av = ft_split(av[1], ' ');
@@ -61,44 +63,21 @@ int main(int ac, char **av)
             i++;
         }
     }
-    printf("=======befor operation stack a ============\n");
-    mystack *tmp = a;
-    while(tmp)
-    {
-        printf("%d\n",tmp->n);
-        tmp = tmp->next;
-    }
-    printf("=======befor operation stack b =========\n");
-    tmp = b;
-    while(tmp)
-    {
-        printf("%d\n",tmp->n);
-        tmp = tmp->next;
-    }
-    sa(&a);
-    pb(&a,&b);
-    pb(&a,&b);
-    pb(&a,&b);
-    ra(&a);
-    rb(&b);
-    rra(&a);
-    rrb(&b);
-    sa(&a);
-    pa(&a,&b);
-    pa(&a,&b);
-    pa(&a,&b);
-    printf("=======after operation stack a =========\n");
-    tmp = a;
-    while(tmp)
-    {
-        printf("%d\n",tmp->n);
-        tmp = tmp->next;
-    }
-    printf("=======after operation stack b =========\n");
-    tmp = b;
-    while(tmp)
-    {
-        printf("%d\n",tmp->n);
-        tmp = tmp->next;
-    }
+    // mystack *tmp;
+    // tmp = a;
+    // printf("========= before sorting===========\n");
+    // while(tmp)
+    // {
+    //     printf("%d\n",tmp->n);
+    //     tmp = tmp->next;
+    // }
+    sorting(&a,&b);
+    s_free(a);
+    // printf("========= after sorting===========\n");
+    // tmp = a;
+    // while(tmp)
+    // {
+    //     printf("%d\n",tmp->n);
+    //     tmp = tmp->next;
+    // }
 }

@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:09:58 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/01 17:27:25 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/07 17:50:00 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,21 @@ void printerror(mystack *a)
 {
     // s_free(a);
     (void)a;
-    printf("khroj t9awed");
+    fprintf(stderr,"khroj t9awed");
     exit(EXIT_FAILURE);
+}
+
+int stacklen(mystack **a)
+{
+	mystack *tmp;
+	int counter;
+
+	counter = 0;
+	tmp = *a;
+	while(tmp)
+	{
+		counter++;
+		tmp = tmp->next;
+	}
+	return(counter);
 }

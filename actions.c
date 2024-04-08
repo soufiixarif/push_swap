@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:23:52 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/02 18:18:13 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/03 16:01:33 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void sa(mystack **a)
 	temp = top1->n;
 	top1->n = top2->n;
 	top2->n = temp;
+    printf("sa\n");
 }
 
 void sb(mystack **b)
@@ -40,12 +41,14 @@ void sb(mystack **b)
 	temp = top1->n;
 	top1->n = top2->n;
 	top2->n = temp;
+    printf("sb\n");
 }
 
 void ss(mystack **a, mystack **b)
 {
     sa(a);
     sb(b);
+    printf("ss\n");
 }
 
 void pa(mystack **a, mystack **b)
@@ -63,6 +66,7 @@ void pa(mystack **a, mystack **b)
 	current = (*b)->next;
 	free(*b);
 	*b = current;
+    printf("pa\n");
 }
 
 void pb(mystack **a, mystack **b)
@@ -77,6 +81,7 @@ void pb(mystack **a, mystack **b)
 	current = (*a)->next;
 	free(*a);
 	*a = current;
+    printf("pb\n");
 }
 
 void ra(mystack **a)
@@ -94,6 +99,7 @@ void ra(mystack **a)
     *a = (*a)->next;
     (*a)->prev = NULL;
     ptr->next->next = NULL;
+    printf("ra\n");
 }
 
 void rb(mystack **b)
@@ -111,12 +117,14 @@ void rb(mystack **b)
     *b = (*b)->next;
     (*b)->prev = NULL;
     ptr->next->next = NULL;
+    printf("rb\n");
 }
 
 void rr(mystack **a, mystack **b)
 {
     ra(a);
     rb(b);
+    printf("rr\n");
 }
 
 void rra(mystack **a)
@@ -134,6 +142,7 @@ void rra(mystack **a)
     (*a) = (*a)->prev;
     ptr->prev->next = NULL;
     (*a)->prev = NULL;
+    printf("rra\n");
 }
 
 void rrb(mystack **b)
@@ -151,10 +160,12 @@ void rrb(mystack **b)
     (*b) = (*b)->prev;
     ptr->prev->next = NULL;
     (*b)->prev = NULL;
+    printf("rrb\n");
 }
 
 void rrr(mystack **a, mystack **b)
 {
     rra(a);
     rrb(b);
+    printf("rrr\n");
 }
