@@ -6,20 +6,20 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:04:27 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/07 17:39:47 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/08 21:52:30 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 typedef struct stack_s
 {
-	int n;
+	int		n;
 	struct stack_s *prev;
 	struct stack_s *next;
 } mystack;
@@ -35,21 +35,21 @@ int		checkvalidity(char *s);
 void	sorting(mystack **a, mystack **b);
 int		stacklen(mystack **a);
 void	sortingthree(mystack **a);
-void sortingfive(mystack **a, mystack **b);
-int max(mystack *a);
+void	sortingfive(mystack **a, mystack **b);
+int		max(mystack *a);
 
 /* actions */
-void sa(mystack **a);
-void sb(mystack **b);
-void ss(mystack **a,mystack **b);
-void pa(mystack **a, mystack **b);
-void pb(mystack **a, mystack **b);
-void ra(mystack **a);
-void rb(mystack **b);
-void rr(mystack **a, mystack **b);
-void rra(mystack **a);
-void rrb(mystack **b);
-void rrr(mystack **a, mystack **b);
+void	sa(mystack **a);
+void	sb(mystack **b);
+void	ss(mystack **a, mystack **b);
+void	pa(mystack **a, mystack **b);
+void	pb(mystack **a, mystack **b);
+void	ra(mystack **a);
+void	rb(mystack **b);
+void	rr(mystack **a, mystack **b);
+void	rra(mystack **a);
+void	rrb(mystack **b);
+void	rrr(mystack **a, mystack **b);
 
 
 /*libft functions*/
@@ -61,9 +61,5 @@ void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlen(char *str);
 int		ft_atoi(const char *str);
 
-void s_free(mystack *head);
-
-extern mystack *a;
-extern mystack *b;
-
+void	s_free(mystack *head);
 #endif

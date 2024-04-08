@@ -6,17 +6,17 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:23:52 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/03 16:01:33 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/08 22:00:00 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sa(mystack **a)
+void	sa(mystack **a)
 {
-    mystack *top1;
-	mystack *top2;
-	int temp;
+	mystack	*top1;
+	mystack	*top2;
+	int		temp;
 
 	if (*a == NULL || !(*a)->next)
 		exit(EXIT_FAILURE);
@@ -25,14 +25,14 @@ void sa(mystack **a)
 	temp = top1->n;
 	top1->n = top2->n;
 	top2->n = temp;
-    printf("sa\n");
+	printf("sa\n");
 }
 
-void sb(mystack **b)
+void	sb(mystack **b)
 {
-    mystack *top1;
-	mystack *top2;
-	int temp;
+	mystack	*top1;
+	mystack	*top2;
+	int		temp;
 
 	if (*b == NULL || !(*b)->next)
 		exit(EXIT_FAILURE);
@@ -41,131 +41,131 @@ void sb(mystack **b)
 	temp = top1->n;
 	top1->n = top2->n;
 	top2->n = temp;
-    printf("sb\n");
+	printf("sb\n");
 }
 
-void ss(mystack **a, mystack **b)
+void	ss(mystack **a, mystack **b)
 {
-    sa(a);
-    sb(b);
-    printf("ss\n");
+	sa(a);
+	sb(b);
+	printf("ss\n");
 }
 
-void pa(mystack **a, mystack **b)
+void	pa(mystack **a, mystack **b)
 {
-	mystack *ptr;
-	mystack *current;
+	mystack	*ptr;
+	mystack	*current;
 
-	if(!b || !*b)
+	if (!b || !*b)
 	{
 		printf("stack b is empty\n");
 		return ;
 	}
 	ptr = *b;
-	pushtostack(a,ptr->n);
+	pushtostack(a, ptr->n);
 	current = (*b)->next;
 	free(*b);
 	*b = current;
-    printf("pa\n");
+	printf("pa\n");
 }
 
-void pb(mystack **a, mystack **b)
+void	pb(mystack **a, mystack **b)
 {
-	mystack *ptr;
-	mystack *current;
+	mystack	*ptr;
+	mystack	*current;
 
-	if(!a || !*a)
+	if (!a || !*a)
 		return ;
 	ptr = *a;
-	pushtostack(b,ptr->n);
+	pushtostack(b, ptr->n);
 	current = (*a)->next;
 	free(*a);
 	*a = current;
-    printf("pb\n");
+	printf("pb\n");
 }
 
-void ra(mystack **a)
+void	ra(mystack **a)
 {
-    mystack *ptr;
-	
-    if (!a || !*a || !(*a)->next)
-        return;
+	mystack	*ptr;
+
+	if (!a || !*a || !(*a)->next)
+		return ;
 	ptr = *a;
-    while (ptr->next)
-        ptr = ptr->next;
+	while (ptr->next)
+		ptr = ptr->next;
 
-    ptr->next = *a;
-    (*a)->prev = ptr;
-    *a = (*a)->next;
-    (*a)->prev = NULL;
-    ptr->next->next = NULL;
-    printf("ra\n");
+	ptr->next = *a;
+	(*a)->prev = ptr;
+	*a = (*a)->next;
+	(*a)->prev = NULL;
+	ptr->next->next = NULL;
+	printf("ra\n");
 }
 
-void rb(mystack **b)
+void	rb(mystack **b)
 {
-    mystack *ptr;
-	
-    if (!b || !*b || !(*b)->next)
-        return;
+	mystack	*ptr;
+
+	if (!b || !*b || !(*b)->next)
+		return ;
 	ptr = *b;
-    while (ptr->next)
-        ptr = ptr->next;
+	while (ptr->next)
+		ptr = ptr->next;
 
-    ptr->next = *b;
-    (*b)->prev = ptr;
-    *b = (*b)->next;
-    (*b)->prev = NULL;
-    ptr->next->next = NULL;
-    printf("rb\n");
+	ptr->next = *b;
+	(*b)->prev = ptr;
+	*b = (*b)->next;
+	(*b)->prev = NULL;
+	ptr->next->next = NULL;
+	printf("rb\n");
 }
 
-void rr(mystack **a, mystack **b)
+void	rr(mystack **a, mystack **b)
 {
-    ra(a);
-    rb(b);
-    printf("rr\n");
+	ra(a);
+	rb(b);
+	printf("rr\n");
 }
 
-void rra(mystack **a)
+void	rra(mystack **a)
 {
-	mystack *ptr;
-	
-    if (!a || !*a || !(*a)->next)
-        return;
+	mystack	*ptr;
+
+	if (!a || !*a || !(*a)->next)
+		return ;
 	ptr = *a;
-    while (ptr->next)
-        ptr = ptr->next;
+	while (ptr->next)
+		ptr = ptr->next;
 
-    ptr->next = *a;
-    (*a)->prev = ptr;
-    (*a) = (*a)->prev;
-    ptr->prev->next = NULL;
-    (*a)->prev = NULL;
-    printf("rra\n");
+	ptr->next = *a;
+	(*a)->prev = ptr;
+	(*a) = (*a)->prev;
+	ptr->prev->next = NULL;
+	(*a)->prev = NULL;
+	printf("rra\n");
 }
 
-void rrb(mystack **b)
+void	rrb(mystack **b)
 {
-	mystack *ptr;
-	
-    if (!b || !*b || !(*b)->next)
-        return;
+	mystack	*ptr;
+
+	if (!b || !*b || !(*b)->next)
+		return ;
 	ptr = *b;
-    while (ptr->next)
-        ptr = ptr->next;
+	while (ptr->next)
+		ptr = ptr->next;
 
-    ptr->next = *b;
-    (*b)->prev = ptr;
-    (*b) = (*b)->prev;
-    ptr->prev->next = NULL;
-    (*b)->prev = NULL;
-    printf("rrb\n");
+	ptr->next = *b;
+	(*b)->prev = ptr;
+	(*b) = (*b)->prev;
+	ptr->prev->next = NULL;
+	(*b)->prev = NULL;
+	printf("rrb\n");
 }
 
-void rrr(mystack **a, mystack **b)
+void	rrr(mystack **a, mystack **b)
 {
-    rra(a);
-    rrb(b);
-    printf("rrr\n");
+	rra(a);
+	rrb(b);
+	printf("rrr\n");
 }
