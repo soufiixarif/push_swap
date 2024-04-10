@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:04:27 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/08 21:52:30 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/09 07:33:43 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,37 +19,42 @@
 
 typedef struct stack_s
 {
-	int		n;
-	struct stack_s *prev;
-	struct stack_s *next;
-} mystack;
+	int				n;
+	int				idx;
+	int				check;
+	struct stack_s	*prev;
+	struct stack_s	*next;
+}	t_stack;
 
 typedef struct s_data
 {
     char **args;
 } t_data;
 
-void	pushtostack(mystack **head, int data);
-void	printerror(mystack *a);
+void	pushtostack(t_stack **head, int data);
+void	printerror(t_stack *a);
 int		checkvalidity(char *s);
-void	sorting(mystack **a, mystack **b);
-int		stacklen(mystack **a);
-void	sortingthree(mystack **a);
-void	sortingfive(mystack **a, mystack **b);
-int		max(mystack *a);
+void	sorting(t_stack **a, t_stack **b);
+int		stacklen(t_stack **a);
+void	sortingthree(t_stack **a);
+void	sortingfive(t_stack **a, t_stack **b);
+int		max(t_stack *a);
+long	get_min(t_stack *a);
+void	indexing(t_stack *a);
+void	checkdouble(t_stack *a);
 
 /* actions */
-void	sa(mystack **a);
-void	sb(mystack **b);
-void	ss(mystack **a, mystack **b);
-void	pa(mystack **a, mystack **b);
-void	pb(mystack **a, mystack **b);
-void	ra(mystack **a);
-void	rb(mystack **b);
-void	rr(mystack **a, mystack **b);
-void	rra(mystack **a);
-void	rrb(mystack **b);
-void	rrr(mystack **a, mystack **b);
+void	sa(t_stack **a);
+void	sb(t_stack **b);
+void	ss(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
+void	ra(t_stack **a);
+void	rb(t_stack **b);
+void	rr(t_stack **a, t_stack **b);
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
 
 
 /*libft functions*/
@@ -61,5 +66,7 @@ void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlen(char *str);
 int		ft_atoi(const char *str);
 
-void	s_free(mystack *head);
+void	s_free(t_stack **head);
+int		ft_2dfree(char **s);
+
 #endif

@@ -6,16 +6,16 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:23:52 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/08 22:00:00 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/09 01:13:54 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(mystack **a)
+void	sa(t_stack **a)
 {
-	mystack	*top1;
-	mystack	*top2;
+	t_stack	*top1;
+	t_stack	*top2;
 	int		temp;
 
 	if (*a == NULL || !(*a)->next)
@@ -28,10 +28,10 @@ void	sa(mystack **a)
 	printf("sa\n");
 }
 
-void	sb(mystack **b)
+void	sb(t_stack **b)
 {
-	mystack	*top1;
-	mystack	*top2;
+	t_stack	*top1;
+	t_stack	*top2;
 	int		temp;
 
 	if (*b == NULL || !(*b)->next)
@@ -44,17 +44,17 @@ void	sb(mystack **b)
 	printf("sb\n");
 }
 
-void	ss(mystack **a, mystack **b)
+void	ss(t_stack **a, t_stack **b)
 {
 	sa(a);
 	sb(b);
 	printf("ss\n");
 }
 
-void	pa(mystack **a, mystack **b)
+void	pa(t_stack **a, t_stack **b)
 {
-	mystack	*ptr;
-	mystack	*current;
+	t_stack	*ptr;
+	t_stack	*current;
 
 	if (!b || !*b)
 	{
@@ -69,10 +69,10 @@ void	pa(mystack **a, mystack **b)
 	printf("pa\n");
 }
 
-void	pb(mystack **a, mystack **b)
+void	pb(t_stack **a, t_stack **b)
 {
-	mystack	*ptr;
-	mystack	*current;
+	t_stack	*ptr;
+	t_stack	*current;
 
 	if (!a || !*a)
 		return ;
@@ -84,9 +84,9 @@ void	pb(mystack **a, mystack **b)
 	printf("pb\n");
 }
 
-void	ra(mystack **a)
+void	ra(t_stack **a)
 {
-	mystack	*ptr;
+	t_stack	*ptr;
 
 	if (!a || !*a || !(*a)->next)
 		return ;
@@ -102,9 +102,9 @@ void	ra(mystack **a)
 	printf("ra\n");
 }
 
-void	rb(mystack **b)
+void	rb(t_stack **b)
 {
-	mystack	*ptr;
+	t_stack	*ptr;
 
 	if (!b || !*b || !(*b)->next)
 		return ;
@@ -120,16 +120,16 @@ void	rb(mystack **b)
 	printf("rb\n");
 }
 
-void	rr(mystack **a, mystack **b)
+void	rr(t_stack **a, t_stack **b)
 {
 	ra(a);
 	rb(b);
 	printf("rr\n");
 }
 
-void	rra(mystack **a)
+void	rra(t_stack **a)
 {
-	mystack	*ptr;
+	t_stack	*ptr;
 
 	if (!a || !*a || !(*a)->next)
 		return ;
@@ -145,9 +145,9 @@ void	rra(mystack **a)
 	printf("rra\n");
 }
 
-void	rrb(mystack **b)
+void	rrb(t_stack **b)
 {
-	mystack	*ptr;
+	t_stack	*ptr;
 
 	if (!b || !*b || !(*b)->next)
 		return ;
@@ -163,7 +163,7 @@ void	rrb(mystack **b)
 	printf("rrb\n");
 }
 
-void	rrr(mystack **a, mystack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
 	rra(a);
 	rrb(b);

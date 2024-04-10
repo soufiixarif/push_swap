@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:09:58 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/08 21:56:24 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/09 01:18:19 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,28 +50,28 @@ int	checkvalidity(char *s)
 	return (1);
 }
 
-void	s_free(mystack *head)
+void	s_free(t_stack **head)
 {
-	mystack	*tmp;
+	t_stack	*tmp;
 
-	while (head != NULL)
+	while (*head != NULL)
 	{
-		tmp = head->next;
-		free(head);
-		head = tmp;
+		tmp = (*head)->next;
+		free(*head);
+		*head = tmp;
 	}
 }
 
-void	printerror(mystack *a)
+void	printerror(t_stack *a)
 {
-	s_free(a);
+	s_free(&a);
 	fprintf(stderr, "khroj f7alek");
 	exit(EXIT_FAILURE);
 }
 
-int	stacklen(mystack **a)
+int	stacklen(t_stack **a)
 {
-	mystack	*tmp;
+	t_stack	*tmp;
 	int		counter;
 
 	counter = 0;
@@ -82,4 +82,20 @@ int	stacklen(mystack **a)
 		tmp = tmp->next;
 	}
 	return (counter);
+}
+
+int	ft_2dfree(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		free(s[i]);
+		s[i] = NULL;
+		i++;
+	}
+	free(s);
+	s = NULL;
+	return (0);
 }

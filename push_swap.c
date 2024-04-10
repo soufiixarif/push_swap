@@ -6,15 +6,15 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:12:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/08 21:50:37 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/09 07:38:49 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pushtostack(mystack **head, int data)
+void	pushtostack(t_stack **head, int data)
 {
-	mystack *new_node = (mystack *)malloc(sizeof(mystack));
+	t_stack *new_node = (t_stack *)malloc(sizeof(t_stack));
 
 	if (new_node == NULL)
 	{
@@ -34,8 +34,8 @@ void f()
 }
 int main(int ac, char **av)
 {
-	mystack	*a = NULL;
-	mystack	*b = NULL;
+	t_stack	*a = NULL;
+	t_stack	*b = NULL;
 	int		i = 0;
 
 	atexit(f);
@@ -51,6 +51,7 @@ int main(int ac, char **av)
 			pushtostack(&a, ft_atoi(av[i]));
 			i++;
 		}
+		ft_2dfree(av);
 	}
 	else if (ac > 2)
 	{
@@ -63,6 +64,7 @@ int main(int ac, char **av)
 			i++;
 		}
 	}
-	sorting(&a,&b);
-	s_free(a);
+	checkdouble(a);
+	sorting(&a, &b);
+	s_free(&a);
 }

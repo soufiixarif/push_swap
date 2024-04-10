@@ -6,16 +6,17 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 15:13:17 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/08 21:54:34 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/09 17:21:05 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	max(mystack *a)
+int	max(t_stack *a)
 {
-	int	max = a->n;
+	int	max;
 
+	max = a->n;
 	while (a)
 	{
 		if (max < a->n)
@@ -25,7 +26,7 @@ int	max(mystack *a)
 	return (max);
 }
 
-void	sortingfive(mystack **a, mystack **b)
+void	sortingfive(t_stack **a, t_stack **b)
 {
 	pb(a, b);
 	pb(a, b);
@@ -46,31 +47,25 @@ void	sortingfive(mystack **a, mystack **b)
 		pa(a, b);
 }
 
-void	sortingthree(mystack **a)
+void	sortingthree(t_stack **a)
 {
 	if ((*a)->n == max(*a))
-	{
 		ra(a);
-		if ((*a)->n > (*a)->next->n)
-			sa(a);
-	}
 	else if ((*a)->next->n == max(*a))
-	{
 		rra(a);
-		if ((*a)->n > (*a)->next->n)
-			sa(a);
-	}
-	else
-		if ((*a)->n > (*a)->next->n)
-			sa(a);
+	if ((*a)->n > (*a)->next->n)
+		sa(a);
 }
 
-void	sorting(mystack **a, mystack **b)
+void	sorting(t_stack **a, t_stack **b)
 {
 	int	len = stacklen(a);
 
+	indexing(*a);
 	if (len == 3)
 		sortingthree(a);
-	if (len == 5)
+	else if (len <= 5)
 		sortingfive(a, b);
+	// else
+
 }
