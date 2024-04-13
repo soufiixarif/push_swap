@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:04:27 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/13 00:55:35 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/13 21:59:27 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ typedef struct stack_s
 	struct stack_s	*next;
 }	t_stack;
 
-typedef struct s_data
-{
-    char **args;
-} t_data;
-
 void	pushtostack(t_stack **head, int data);
 void	printerror(t_stack *a);
 int		checkvalidity(char *s);
@@ -47,6 +42,8 @@ void	checkdouble(t_stack *a);
 void	set_position(t_stack *a);
 void	make_it_top(t_stack **a, t_stack **b, int pos, int min);
 int		check_if_it_top(t_stack *a, int min);
+int		nb_content(char *s, int len, int i);
+void	chunkpush(t_stack **a, t_stack **b, int len);
 
 /* actions */
 void	sa(t_stack **a);
@@ -60,7 +57,6 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
-
 
 /*libft functions*/
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);

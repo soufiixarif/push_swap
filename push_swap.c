@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:12:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/13 00:30:07 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/13 21:48:14 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	pushtostack(t_stack **head, int data)
 {
-	t_stack *new_node = (t_stack *)malloc(sizeof(t_stack));
+	t_stack	*new_node;
 
+	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed");
@@ -37,7 +38,6 @@ int main(int ac, char **av)
 	t_stack	*a = NULL;
 	t_stack	*b = NULL;
 	int		i = 0;
-    (void)b;
 
 	// atexit(f);
 	if (ac == 1 || !av[1][0])
@@ -53,7 +53,7 @@ int main(int ac, char **av)
 			i++;
 		}
 		ft_2dfree(av);
-        set_position(a);
+		set_position(a);
 	}
 	else if (ac > 2)
 	{
@@ -65,24 +65,32 @@ int main(int ac, char **av)
 			pushtostack (&a, ft_atoi(av[i]));
 			i++;
 		}
-        set_position(a);
+		set_position(a);
 	}
 	checkdouble(a);
-    t_stack *tmp;
-    printf("==========before==========\n");
-    tmp = a;
-    while (tmp)
-    {
-        printf("%d\n",tmp->n);
-        tmp = tmp->next;
-    }
-    printf("==========after==========\n");
+	t_stack *tmp;
+	printf("==========before==========\n");
+	tmp = a;
+	while (tmp)
+	{
+		printf("%d\n",tmp->n);
+		tmp = tmp->next;
+	}
+	printf("==========after==========\n");
 	sorting(&a, &b);
-    tmp = a;
-    while (tmp)
-    {
-        printf("%d\n",tmp->n);
-        tmp = tmp->next;
-    }
+	printf("====== STACK A ======\n");
+	tmp = a;
+	while (tmp)
+	{
+		printf("%d\n",tmp->n);
+		tmp = tmp->next;
+	}
+	printf("====== STACK B ======\n");
+	tmp = b;
+	while (tmp)
+	{
+		printf("%d\n",tmp->n);
+		tmp = tmp->next;
+	}
 	s_free(&a);
 }
