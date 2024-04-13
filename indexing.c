@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 01:19:43 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/09 07:03:57 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/13 00:54:19 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 long	get_min(t_stack *a)
 {
 	long	min;
+	t_stack *ptr;
 
 	min = 2147483648;
-	while (a)
+	ptr = a;
+	while (ptr)
 	{
-		if (min > a->n && a->check == 0)
-			min = a->n;
-		a = a->next;
+		if (min > ptr->n && ptr->check == 0)
+			min = ptr->n;
+		ptr = ptr->next;
 	}
 	return (min);
 }
@@ -50,5 +52,17 @@ void	indexing(t_stack *a)
 		}
 		a = tmp;
 		min = get_min(a);
+	}
+}
+
+void set_position(t_stack *a)
+{
+	int i;
+
+	i = 0;
+	while(a)
+	{
+		a->position = i++;
+		a = a->next;
 	}
 }

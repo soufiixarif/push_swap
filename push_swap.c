@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:12:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/09 07:38:49 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/13 00:30:07 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ int main(int ac, char **av)
 	t_stack	*a = NULL;
 	t_stack	*b = NULL;
 	int		i = 0;
+    (void)b;
 
-	atexit(f);
+	// atexit(f);
 	if (ac == 1 || !av[1][0])
 		return (1);
 	if (ac == 2)
@@ -52,6 +53,7 @@ int main(int ac, char **av)
 			i++;
 		}
 		ft_2dfree(av);
+        set_position(a);
 	}
 	else if (ac > 2)
 	{
@@ -63,8 +65,24 @@ int main(int ac, char **av)
 			pushtostack (&a, ft_atoi(av[i]));
 			i++;
 		}
+        set_position(a);
 	}
 	checkdouble(a);
+    t_stack *tmp;
+    printf("==========before==========\n");
+    tmp = a;
+    while (tmp)
+    {
+        printf("%d\n",tmp->n);
+        tmp = tmp->next;
+    }
+    printf("==========after==========\n");
 	sorting(&a, &b);
+    tmp = a;
+    while (tmp)
+    {
+        printf("%d\n",tmp->n);
+        tmp = tmp->next;
+    }
 	s_free(&a);
 }

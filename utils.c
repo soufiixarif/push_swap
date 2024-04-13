@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:09:58 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/09 01:18:19 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/12 23:37:11 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,13 @@ void	printerror(t_stack *a)
 	exit(EXIT_FAILURE);
 }
 
-int	stacklen(t_stack **a)
+int	stacklen(t_stack *a)
 {
 	t_stack	*tmp;
 	int		counter;
 
 	counter = 0;
-	tmp = *a;
+	tmp = a;
 	while (tmp)
 	{
 		counter++;

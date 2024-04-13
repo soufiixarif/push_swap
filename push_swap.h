@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:04:27 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/09 07:33:43 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/13 00:55:35 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct stack_s
 {
 	int				n;
+	int				position;
 	int				idx;
 	int				check;
 	struct stack_s	*prev;
@@ -35,13 +36,17 @@ void	pushtostack(t_stack **head, int data);
 void	printerror(t_stack *a);
 int		checkvalidity(char *s);
 void	sorting(t_stack **a, t_stack **b);
-int		stacklen(t_stack **a);
+int		stacklen(t_stack *a);
 void	sortingthree(t_stack **a);
 void	sortingfive(t_stack **a, t_stack **b);
 int		max(t_stack *a);
+int		min(t_stack *a);
 long	get_min(t_stack *a);
 void	indexing(t_stack *a);
 void	checkdouble(t_stack *a);
+void	set_position(t_stack *a);
+void	make_it_top(t_stack **a, t_stack **b, int pos, int min);
+int		check_if_it_top(t_stack *a, int min);
 
 /* actions */
 void	sa(t_stack **a);
