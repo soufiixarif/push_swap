@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 18:04:44 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/14 05:39:29 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/14 23:33:22 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,62 @@ void	lastchunkpush(t_stack **a, t_stack **b, int min, int max)
 		}
 		ptr = ptr->next;
 	}
+}
+
+void	makeorder(t_stack **a, t_stack **b)
+{
+	t_stack	*ptr;
+	int		smax;
+
+	ptr = *b;
+	smax = max(*a);
+	while (ptr)
+	{
+		if (ptr->n == (*a)->n - 1)
+		{
+			pa(a, b);
+			while (buttom_is_available(a))
+				rra(a);
+		}
+		else if (max_in_buttom(a, smax))
+		{
+			pa(a, b);
+			ra(a);
+		}
+		else
+			rb(b);
+		ptr = ptr->next;
+	}
+}
+
+int	max_in_buttom(t_stack **a, int max)
+{
+	t_stack	*ptr;
+
+	ptr = *a;
+	while (ptr->next)
+	{
+		ptr = ptr->next;
+	}
+	if (ptr->n == max)
+		return (1);
+	else
+		return (0);
+}
+
+int	buttom_is_available(t_stack **a)
+{
+	t_stack	*ptr;
+	int		value;
+
+	ptr = *a;
+	value = (*a)->n - 1;
+	while (ptr->next)
+	{
+		ptr = ptr->next;
+	}
+	if (ptr->n == value)
+		return (1);
+	else
+		return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 15:13:17 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/14 05:35:15 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/14 23:15:12 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	sortingmore(t_stack **a, t_stack **b)
 	chunkpush(a, b, len / 3, len * 2 / 3);
 	lastchunkpush(a, b, len * 2 / 3, len);
 	sortingthree(a);
+	makeorder(a, b);
 }
 
 void	sortingfive(t_stack **a, t_stack **b)
