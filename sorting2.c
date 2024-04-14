@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:04:26 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/13 21:01:28 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/14 04:17:25 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@ void	make_it_top(t_stack **a, t_stack **b, int pos, int min)
 		if (ptr->position == pos)
 		{
 			if (pos <= stacklen(*a) / 2)
-			{
 				while (!check_if_it_top(*a, min))
 					ra(a);
-			}
 			else
 				while (!check_if_it_top(*a, min))
 					rra(a);
@@ -41,7 +39,9 @@ void	make_it_top(t_stack **a, t_stack **b, int pos, int min)
 		}
 		ptr = ptr->next;
 	}
+	set_position(*a);
 }
+
 
 int	max(t_stack *a)
 {

@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 15:13:17 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/13 21:59:14 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/14 05:35:15 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	sortingmore(t_stack **a, t_stack **b)
 {
-	int	len;
+	int		len;
 
 	len = stacklen(*a);
-	printf("stack len %d furst chunk is %d\n",len,len /3);
-	chunkpush(a, b, (len / 3));
-	chunkpush(a, b, (len * 2 / 3));
+	chunkpush(a, b, 0, (len / 3));
+	chunkpush(a, b, len / 3, len * 2 / 3);
+	lastchunkpush(a, b, len * 2 / 3, len);
+	sortingthree(a);
 }
 
 void	sortingfive(t_stack **a, t_stack **b)

@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:04:27 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/13 21:59:27 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/14 05:31:59 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ typedef struct stack_s
 	struct stack_s	*next;
 }	t_stack;
 
+typedef struct range_s
+{
+	int	min;
+	int	max;
+}	t_range;
+
 void	pushtostack(t_stack **head, int data);
 void	printerror(t_stack *a);
 int		checkvalidity(char *s);
@@ -43,7 +49,8 @@ void	set_position(t_stack *a);
 void	make_it_top(t_stack **a, t_stack **b, int pos, int min);
 int		check_if_it_top(t_stack *a, int min);
 int		nb_content(char *s, int len, int i);
-void	chunkpush(t_stack **a, t_stack **b, int len);
+void	chunkpush(t_stack **a, t_stack **b, int min, int max);
+void	lastchunkpush(t_stack **a, t_stack **b, int min, int max);
 
 /* actions */
 void	sa(t_stack **a);
