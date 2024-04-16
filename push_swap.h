@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:04:27 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/14 23:03:36 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/16 02:26:08 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ int		ft_atoi(const char *str);
 
 void	s_free(t_stack **head);
 int		ft_2dfree(char **s);
+int		ft_2darrlen(char **av);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:04:26 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/14 04:17:25 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/16 03:30:06 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_if_it_top(t_stack *a, int min)
 {
-	if (a->n == min)
+	if (a->idx == min)
 		return (1);
 	else
 		return (0);
@@ -31,7 +31,10 @@ void	make_it_top(t_stack **a, t_stack **b, int pos, int min)
 		{
 			if (pos <= stacklen(*a) / 2)
 				while (!check_if_it_top(*a, min))
+				{
+					printf("");
 					ra(a);
+				}
 			else
 				while (!check_if_it_top(*a, min))
 					rra(a);
@@ -47,11 +50,11 @@ int	max(t_stack *a)
 {
 	int	max;
 
-	max = a->n;
+	max = a->idx;
 	while (a)
 	{
-		if (max < a->n)
-			max = a->n;
+		if (max < a->idx)
+			max = a->idx;
 		a = a->next;
 	}
 	return (max);
@@ -61,11 +64,11 @@ int	min(t_stack *a)
 {
 	int	min;
 
-	min = a->n;
+	min = a->idx;
 	while (a)
 	{
-		if (min > a->n)
-			min = a->n;
+		if (min > a->idx)
+			min = a->idx;
 		a = a->next;
 	}
 	return (min);

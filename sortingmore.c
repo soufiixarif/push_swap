@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 18:04:44 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/14 23:33:22 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/16 03:32:00 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	chunkpush(t_stack **a, t_stack **b, int min, int max)
 	while (ptr)
 	{
 		if (ptr->idx < (max + min) / 2)
-			make_it_top(a, b, ptr->position, ptr->n);
+			make_it_top(a, b, ptr->position, ptr->idx);
 		else if (ptr->idx < max && ptr->idx >= (max + min) / 2)
 		{
-			make_it_top(a, b, ptr->position, ptr->n);
+			make_it_top(a, b, ptr->position, ptr->idx);
 			rb(b);
 		}
 		ptr = ptr->next;
@@ -70,7 +70,8 @@ void	makeorder(t_stack **a, t_stack **b)
 		}
 		else
 			rb(b);
-		ptr = ptr->next;
+		// printf("value of head %d\n",ptr->idx);
+		ptr = *b;
 	}
 }
 

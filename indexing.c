@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 01:19:43 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/13 00:54:19 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/16 03:24:50 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ void	indexing(t_stack *a)
 	}
 }
 
-void set_position(t_stack *a)
+void	set_position(t_stack *a)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(a)
+	while (a)
 	{
 		a->position = i++;
 		a = a->next;

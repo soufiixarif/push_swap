@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:09:58 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/13 16:15:35 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/16 02:33:17 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,14 @@ int	ft_2dfree(char **s)
 	free(s);
 	s = NULL;
 	return (0);
+}
+
+int	ft_2darrlen(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+		i++;
+	return (i - 1);
 }

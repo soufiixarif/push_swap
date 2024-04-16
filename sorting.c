@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 15:13:17 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/14 23:15:12 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/16 03:32:36 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,14 @@ void	sortingmore(t_stack **a, t_stack **b)
 
 	len = stacklen(*a);
 	chunkpush(a, b, 0, (len / 3));
+	printf("======1=========\n");
 	chunkpush(a, b, len / 3, len * 2 / 3);
+	printf("======2=========\n");
 	lastchunkpush(a, b, len * 2 / 3, len);
+	printf("======3=========\n");
 	sortingthree(a);
-	makeorder(a, b);
+	printf("======4=========\n");
+	// makeorder(a, b);
 }
 
 void	sortingfive(t_stack **a, t_stack **b)
@@ -37,7 +41,7 @@ void	sortingfive(t_stack **a, t_stack **b)
 		ptr = *a;
 		while (ptr)
 		{
-			if (ptr->n == minimum)
+			if (ptr->idx == minimum)
 				make_it_top(a, b, ptr->position, minimum);
 			ptr = ptr->next;
 		}
@@ -53,11 +57,11 @@ void	sortingfive(t_stack **a, t_stack **b)
 
 void	sortingthree(t_stack **a)
 {
-	if ((*a)->n == max(*a))
+	if ((*a)->idx == max(*a))
 		ra(a);
-	else if ((*a)->next->n == max(*a))
+	else if ((*a)->next->idx == max(*a))
 		rra(a);
-	if ((*a)->n > (*a)->next->n)
+	if ((*a)->idx > (*a)->next->idx)
 		sa(a);
 }
 
