@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:04:27 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/16 02:26:08 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/17 02:26:04 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,22 @@ void	sorting(t_stack **a, t_stack **b);
 int		stacklen(t_stack *a);
 void	sortingthree(t_stack **a);
 void	sortingfive(t_stack **a, t_stack **b);
-int		max(t_stack *a);
+int		max(t_stack **a);
 int		min(t_stack *a);
 long	get_min(t_stack *a);
 void	indexing(t_stack *a);
 void	checkdouble(t_stack *a);
 void	set_position(t_stack *a);
 void	make_it_top(t_stack **a, t_stack **b, int pos, int min);
-int		check_if_it_top(t_stack *a, int min);
+int		check_if_it_top(t_stack **a, int min);
 int		nb_content(char *s, int len, int i);
 void	chunkpush(t_stack **a, t_stack **b, int min, int max);
 void	lastchunkpush(t_stack **a, t_stack **b, int min, int max);
 int		max_in_buttom(t_stack **a, int max);
 int		buttom_is_available(t_stack **a);
 void	makeorder(t_stack **a, t_stack **b);
+void	make_correct_top(t_stack **a, t_stack **b);
+int lastidx(t_stack *a);
 
 /* actions */
 void	sa(t_stack **a);

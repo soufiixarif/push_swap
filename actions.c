@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:23:52 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/09 01:13:54 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/17 01:57:46 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,39 @@
 
 void	sa(t_stack **a)
 {
-	t_stack	*top1;
-	t_stack	*top2;
-	int		temp;
+    t_stack *top1;
+    t_stack *top2;
 
-	if (*a == NULL || !(*a)->next)
-		exit(EXIT_FAILURE);
+	if (*a == NULL || (*a)->next == NULL)
+        return;
 	top1 = *a;
 	top2 = top1->next;
-	temp = top1->n;
-	top1->n = top2->n;
-	top2->n = temp;
-	printf("sa\n");
+    top1->prev = top2;
+    top2->prev = NULL;
+    top1->next = top2->next;
+    if (top2->next != NULL) 
+        top2->next->prev = top1;
+    top2->next = top1;
+    *a = top2;
+    printf("sa\n");
 }
 
 void	sb(t_stack **b)
 {
-	t_stack	*top1;
-	t_stack	*top2;
-	int		temp;
+    t_stack *top1;
+    t_stack *top2;
 
-	if (*b == NULL || !(*b)->next)
-		exit(EXIT_FAILURE);
+	if (*b == NULL || (*b)->next == NULL)
+        return;
 	top1 = *b;
 	top2 = top1->next;
-	temp = top1->n;
-	top1->n = top2->n;
-	top2->n = temp;
+    top1->prev = top2;
+    top2->prev = NULL;
+    top1->next = top2->next;
+    if (top2->next != NULL) 
+        top2->next->prev = top1;
+    top2->next = top1;
+    *b = top2;
 	printf("sb\n");
 }
 
@@ -53,35 +59,34 @@ void	ss(t_stack **a, t_stack **b)
 
 void	pa(t_stack **a, t_stack **b)
 {
-	t_stack	*ptr;
-	t_stack	*current;
-
-	if (!b || !*b)
-	{
-		printf("stack b is empty\n");
-		return ;
-	}
+    t_stack *ptr;
+	
 	ptr = *b;
-	pushtostack(a, ptr->n);
-	current = (*b)->next;
-	free(*b);
-	*b = current;
-	printf("pa\n");
+	if (*b == NULL)
+        return;
+    *b = (*b)->next;
+    if (*a != NULL)
+        (*a)->prev = ptr;
+    ptr->next = *a;
+    ptr->prev = NULL;
+    *a = ptr;
+    printf("pa\n");
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
-	t_stack	*ptr;
-	t_stack	*current;
-
-	if (!a || !*a)
-		return ;
+    t_stack *ptr;
+	
 	ptr = *a;
-	pushtostack(b, ptr->n);
-	current = (*a)->next;
-	free(*a);
-	*a = current;
-	printf("pb\n");
+	if (*a == NULL)
+        return;
+    *a = (*a)->next;
+    if (*b != NULL)
+        (*b)->prev = ptr;
+    ptr->next = *b;
+    ptr->prev = NULL;
+    *b = ptr;
+    printf("pb\n");
 }
 
 void	ra(t_stack **a)

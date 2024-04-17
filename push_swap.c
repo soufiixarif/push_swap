@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:12:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/16 02:33:34 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/17 01:57:11 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,29 +70,30 @@ int main(int ac, char **av)
 		set_position(a);
 	}
 	checkdouble(a);
-	t_stack *tmp;
-	printf("==========before==========\n");
-	tmp = a;
-	while (tmp)
-	{
-		printf("%d\n",tmp->n);
-		tmp = tmp->next;
-	}
-	printf("==========after==========\n");
+	indexing(a);
+	// t_stack *tmp;
+	// printf("==========before==========\n");
+	// tmp = a;
+	// while (tmp)
+	// {
+	// 	printf("index %d o number %d\n",tmp->idx,tmp->n);
+	// 	tmp = tmp->next;
+	// }
+	// printf("==========after==========\n");
 	sorting(&a, &b);
-	printf("====== STACK A ======\n");
-	tmp = a;
-	while (tmp)
-	{
-		printf("%d\n",tmp->n);
-		tmp = tmp->next;
-	}
-	printf("====== STACK B ======\n");
-	tmp = b;
-	while (tmp)
-	{
-		printf("%d\n",tmp->n);
-		tmp = tmp->next;
-	}
+	// printf("====== STACK A ======\n");
+	// tmp = a;
+	// while (tmp)
+	// {
+	// 	printf("index %d o number %d\n",tmp->idx,tmp->n);
+	// 	tmp = tmp->next;
+	// }
+	// printf("====== STACK B ======\n");
+	// tmp = b;
+	// while (tmp)
+	// {
+	// 	printf("index %d o number %d\n",tmp->idx,tmp->n);
+	// 	tmp = tmp->next;
+	// }
 	s_free(&a);
 }
