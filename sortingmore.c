@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 18:04:44 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/17 02:38:53 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/17 16:51:26 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	chunkpush(t_stack **a, t_stack **b, int min, int max)
 		if (ptr->idx < (max + min) / 2)
 		{
 			make_it_top(a, b, ptr->position, ptr->idx);
-			// rb(b);
+			rb(b);
 			ptr = *a;
 		}
 		else if (ptr->idx < max && ptr->idx >= (max + min) / 2)
@@ -39,6 +39,7 @@ void	chunkpush(t_stack **a, t_stack **b, int min, int max)
 			ptr = ptr->next;
 			continue;
 		}
+		set_position(*a);
 		i++;
 	}
 }
@@ -57,7 +58,7 @@ void	lastchunkpush(t_stack **a, t_stack **b, int min, int max)
 		if (ptr->idx < (max + min) / 2 && ptr->idx < max - 3)
 		{	
 			make_it_top(a, b, ptr->position, ptr->idx);
-			// rb(b);
+			rb(b);
 		}
 		else if (ptr->idx < max - 3 && ptr->idx >= (max + min) / 2)
 		{
@@ -95,6 +96,7 @@ void	makeorder(t_stack **a, t_stack **b)
 		}
 		else
 			make_correct_top(a, b);
+		set_position(*b);
 		ptr = *b;
 	}
 }
