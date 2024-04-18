@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 18:04:44 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/17 16:51:26 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/18 20:51:17 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,18 @@ void	chunkpush(t_stack **a, t_stack **b, int min, int max)
 		if (ptr->idx < (max + min) / 2)
 		{
 			make_it_top(a, b, ptr->position, ptr->idx);
-			rb(b);
-			ptr = *a;
+			rb(b, 1);
+			if(!check_if_it_top(a, ptr->idx))
 		}
 		else if (ptr->idx < max && ptr->idx >= (max + min) / 2)
-		{
 			make_it_top(a, b, ptr->position, ptr->idx);
-			ptr = *a;
-		}
 		else
 		{
 			ptr = ptr->next;
 			continue;
 		}
 		set_position(*a);
+		ptr = *a;
 		i++;
 	}
 }
@@ -58,17 +56,16 @@ void	lastchunkpush(t_stack **a, t_stack **b, int min, int max)
 		if (ptr->idx < (max + min) / 2 && ptr->idx < max - 3)
 		{	
 			make_it_top(a, b, ptr->position, ptr->idx);
-			rb(b);
+			rb(b, 1);
 		}
 		else if (ptr->idx < max - 3 && ptr->idx >= (max + min) / 2)
-		{
 			make_it_top(a, b, ptr->position, ptr->idx);
-		}
 		else
 		{
 			ptr = ptr->next;
 			continue ;
 		}
+		set_position(*a);
 		ptr = *a;
 		i++;
 	}
@@ -87,12 +84,16 @@ void	makeorder(t_stack **a, t_stack **b)
 		{
 			pa(a, b);
 			while (buttom_is_available(a))
-				rra(a);
+				rra(a, 1);
+			// if ((*b)->idx == (*a)->idx  -1 && (*b)->position > stacklen(*b) / 2)
+			// {
+			// 	rrr(a,b);
+			// }
 		}
 		else if (max_in_buttom(a, smax) || lastidx(*a) < ptr->idx)
 		{
 			pa(a, b);
-			ra(a);
+			ra(a, 1);
 		}
 		else
 			make_correct_top(a, b);
@@ -140,12 +141,12 @@ void	make_correct_top(t_stack **a, t_stack **b)
 	ptr = *b;
 	while (ptr)
 	{
-		if (ptr->idx == (*a)->idx  -1)
+		if (ptr->idx == (*a)->idx - 1)
 		{
 			if (ptr->position <= stacklen(*b) / 2)
-				rb(b);
+				rb(b, 1);
 			else
-				rrb(b);
+				rrb(b, 1);
 			break;
 		}
 		ptr = ptr->next;

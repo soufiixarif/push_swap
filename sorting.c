@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 15:13:17 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/17 01:31:07 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/18 20:47:02 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	sortingfive(t_stack **a, t_stack **b)
 	}
 	sortingthree(a);
 	if ((*b)->n < (*b)->next->n)
-		sa(a);
+		sa(a, 1);
 	pa(a, b);
 	pa(a, b);
 }
@@ -54,11 +54,11 @@ void	sortingfive(t_stack **a, t_stack **b)
 void	sortingthree(t_stack **a)
 {
 	if ((*a)->idx == max(a))
-		ra(a);
+		ra(a, 1);
 	else if ((*a)->next->idx == max(a))
-		rra(a);
+		rra(a, 1);
 	if ((*a)->idx > (*a)->next->idx)
-		sa(a);
+		sa(a, 1);
 }
 
 void	sorting(t_stack **a, t_stack **b)

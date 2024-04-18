@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:04:27 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/17 02:26:04 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/18 20:47:47 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,16 @@ void	make_correct_top(t_stack **a, t_stack **b);
 int lastidx(t_stack *a);
 
 /* actions */
-void	sa(t_stack **a);
-void	sb(t_stack **b);
+void	sa(t_stack **a, int checker);
+void	sb(t_stack **b, int checker);
 void	ss(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
-void	ra(t_stack **a);
-void	rb(t_stack **b);
+void	ra(t_stack **a, int checker);
+void	rb(t_stack **b, int checker);
 void	rr(t_stack **a, t_stack **b);
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
+void	rra(t_stack **a, int checker);
+void	rrb(t_stack **b, int checker);
 void	rrr(t_stack **a, t_stack **b);
 
 /*libft functions*/

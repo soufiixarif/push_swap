@@ -6,13 +6,13 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:23:52 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/17 01:57:46 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/18 20:45:52 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, int checker)
 {
     t_stack *top1;
     t_stack *top2;
@@ -28,10 +28,11 @@ void	sa(t_stack **a)
         top2->next->prev = top1;
     top2->next = top1;
     *a = top2;
-    printf("sa\n");
+	if (checker == 1)
+    	printf("sa\n");
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, int checker)
 {
     t_stack *top1;
     t_stack *top2;
@@ -47,13 +48,14 @@ void	sb(t_stack **b)
         top2->next->prev = top1;
     top2->next = top1;
     *b = top2;
-	printf("sb\n");
+	if (checker == 1)
+		printf("sb\n");
 }
 
 void	ss(t_stack **a, t_stack **b)
 {
-	sa(a);
-	sb(b);
+	sa(a, 0);
+	sb(b, 0);
 	printf("ss\n");
 }
 
@@ -89,7 +91,7 @@ void	pb(t_stack **a, t_stack **b)
     printf("pb\n");
 }
 
-void	ra(t_stack **a)
+void	ra(t_stack **a, int checker)
 {
 	t_stack	*ptr;
 
@@ -104,10 +106,11 @@ void	ra(t_stack **a)
 	*a = (*a)->next;
 	(*a)->prev = NULL;
 	ptr->next->next = NULL;
-	printf("ra\n");
+	if (checker == 1)
+		printf("ra\n");
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, int checker)
 {
 	t_stack	*ptr;
 
@@ -122,17 +125,18 @@ void	rb(t_stack **b)
 	*b = (*b)->next;
 	(*b)->prev = NULL;
 	ptr->next->next = NULL;
-	printf("rb\n");
+	if (checker == 1)
+		printf("rb\n");
 }
 
 void	rr(t_stack **a, t_stack **b)
 {
-	ra(a);
-	rb(b);
+	ra(a, 0);
+	rb(b, 0);
 	printf("rr\n");
 }
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, int checker)
 {
 	t_stack	*ptr;
 
@@ -147,10 +151,11 @@ void	rra(t_stack **a)
 	(*a) = (*a)->prev;
 	ptr->prev->next = NULL;
 	(*a)->prev = NULL;
-	printf("rra\n");
+	if (checker == 1)
+		printf("rra\n");
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, int checker)
 {
 	t_stack	*ptr;
 
@@ -165,12 +170,13 @@ void	rrb(t_stack **b)
 	(*b) = (*b)->prev;
 	ptr->prev->next = NULL;
 	(*b)->prev = NULL;
-	printf("rrb\n");
+	if (checker == 1)
+		printf("rrb\n");
 }
 
 void	rrr(t_stack **a, t_stack **b)
 {
-	rra(a);
-	rrb(b);
+	rra(a, 0);
+	rrb(b, 0);
 	printf("rrr\n");
 }
