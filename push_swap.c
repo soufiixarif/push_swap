@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:12:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/21 06:55:12 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/21 18:11:55 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,29 +70,6 @@ int main(int ac, char **av)
 	}
 	checkdouble(a);
 	indexing(a);
-	// t_stack *tmp;
-	// printf("==========before==========\n");
-	// tmp = a;
-	// while (tmp)
-	// {
-	// 	printf("%d\n",tmp->idx);
-	// 	tmp = tmp->next;
-	// }
-	// printf("==========after==========\n");
 	sorting(&a, &b);
-	// printf("====== STACK A ======\n");
-	// tmp = a;
-	// while (tmp)
-	// {
-	// 	printf("%d\n",tmp->idx);
-	// 	tmp = tmp->next;
-	// }
-	// printf("====== STACK B ======\n");
-	// tmp = b;
-	// while (tmp)
-	// {
-	// 	printf("%d\n",tmp->idx);
-	// 	tmp = tmp->next;
-	// }
 	s_free(&a);
 }

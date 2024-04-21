@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:09:58 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/16 02:33:17 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/21 17:29:25 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	stacklen(t_stack *a)
 	tmp = a;
 	while (tmp)
 	{
-		counter++;
 		tmp = tmp->next;
+		counter++;
 	}
 	return (counter);
 }

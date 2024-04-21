@@ -1,7 +1,7 @@
 NAME = push_swap
 SRC = push_swap.c libftfun.c libftfun1.c libftfun2.c utils.c actions.c sorting.c indexing.c checkdouble.c sorting2.c checkvalidity.c sortingmore.c
 OBJ = $(SRC:.c=.o)
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -g -Wall -Wextra -Werror
 CC = gcc
 
 all: $(NAME)
