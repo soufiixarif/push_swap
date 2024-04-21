@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 18:04:44 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/18 20:51:17 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/21 00:48:30 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ void	chunkpush(t_stack **a, t_stack **b, int min, int max)
 		if (ptr->idx < (max + min) / 2)
 		{
 			make_it_top(a, b, ptr->position, ptr->idx);
-			rb(b, 1);
-			if(!check_if_it_top(a, ptr->idx))
+			if (optimisation(a, max))
+				rr(a,b);
+			else
+				rb(b, 1);
 		}
 		else if (ptr->idx < max && ptr->idx >= (max + min) / 2)
 			make_it_top(a, b, ptr->position, ptr->idx);
@@ -56,7 +58,10 @@ void	lastchunkpush(t_stack **a, t_stack **b, int min, int max)
 		if (ptr->idx < (max + min) / 2 && ptr->idx < max - 3)
 		{	
 			make_it_top(a, b, ptr->position, ptr->idx);
-			rb(b, 1);
+			if (optimisation(a,max - 3))
+				rr(a,b);
+			else
+				rb(b, 1);
 		}
 		else if (ptr->idx < max - 3 && ptr->idx >= (max + min) / 2)
 			make_it_top(a, b, ptr->position, ptr->idx);
@@ -83,12 +88,9 @@ void	makeorder(t_stack **a, t_stack **b)
 		if (ptr->idx == (*a)->idx - 1)
 		{
 			pa(a, b);
+			orderopti(a,b);
 			while (buttom_is_available(a))
 				rra(a, 1);
-			// if ((*b)->idx == (*a)->idx  -1 && (*b)->position > stacklen(*b) / 2)
-			// {
-			// 	rrr(a,b);
-			// }
 		}
 		else if (max_in_buttom(a, smax) || lastidx(*a) < ptr->idx)
 		{
@@ -163,4 +165,26 @@ int lastidx(t_stack *a)
 		ptr = ptr->next;
 	}
 	return(ptr->idx);
+}
+
+int optimisation(t_stack **a, int max)
+{
+	t_stack *ptr;
+
+	ptr = *a;
+	if (ptr->idx >= max)
+		return(1);
+	else
+		return (0);
+}
+
+void orderopti(t_stack **a, t_stack **b)
+{
+	t_stack *ptr;
+
+	ptr = *b;
+	while (ptr)
+	{
+		while (buttom_is_available(a) && ptr->idx)
+	}
 }

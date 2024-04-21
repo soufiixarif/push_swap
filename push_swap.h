@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:04:27 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/18 20:47:47 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/21 00:34:15 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ int		max_in_buttom(t_stack **a, int max);
 int		buttom_is_available(t_stack **a);
 void	makeorder(t_stack **a, t_stack **b);
 void	make_correct_top(t_stack **a, t_stack **b);
-int lastidx(t_stack *a);
+int		lastidx(t_stack *a);
+int		optimisation(t_stack **a, int max);
+void	orderopti(t_stack **a, t_stack **b);
+
 
 /* actions */
 void	sa(t_stack **a, int checker);
