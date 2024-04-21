@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 15:13:17 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/21 00:38:04 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/21 06:48:06 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void	sortingmore(t_stack **a, t_stack **b)
 	chunkpush(a, b, len / 3, len * 2 / 3);
 	lastchunkpush(a, b, len * 2 / 3, len);
 	sortingthree(a);
-	printf("=====\n");
-	makeorder(a, b);
+	// makeorder(a, b);
+	makeorder2(a, b);
+
 }
 
 void	sortingfive(t_stack **a, t_stack **b)

@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:12:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/17 01:57:11 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/21 06:55:12 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int main(int ac, char **av)
 	{
 		av = ft_split(av[1], ' ');
 		i = ft_2darrlen(av);
-		printf("%d\n",i);
 		while (i >= 0)
 		{
 			if (!checkvalidity(av[i]))
@@ -76,7 +75,7 @@ int main(int ac, char **av)
 	// tmp = a;
 	// while (tmp)
 	// {
-	// 	printf("index %d o number %d\n",tmp->idx,tmp->n);
+	// 	printf("%d\n",tmp->idx);
 	// 	tmp = tmp->next;
 	// }
 	// printf("==========after==========\n");
@@ -85,14 +84,14 @@ int main(int ac, char **av)
 	// tmp = a;
 	// while (tmp)
 	// {
-	// 	printf("index %d o number %d\n",tmp->idx,tmp->n);
+	// 	printf("%d\n",tmp->idx);
 	// 	tmp = tmp->next;
 	// }
 	// printf("====== STACK B ======\n");
 	// tmp = b;
 	// while (tmp)
 	// {
-	// 	printf("index %d o number %d\n",tmp->idx,tmp->n);
+	// 	printf("%d\n",tmp->idx);
 	// 	tmp = tmp->next;
 	// }
 	s_free(&a);

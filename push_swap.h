@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:04:27 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/21 00:34:15 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/21 06:30:48 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ void	makeorder(t_stack **a, t_stack **b);
 void	make_correct_top(t_stack **a, t_stack **b);
 int		lastidx(t_stack *a);
 int		optimisation(t_stack **a, int max);
-void	orderopti(t_stack **a, t_stack **b);
+void	makeorder2(t_stack **a, t_stack **b);
+int		close_to_top(t_stack **b, int index);
+
+// void	orderopti(t_stack **a, t_stack **b);
 
 
 /* actions */
