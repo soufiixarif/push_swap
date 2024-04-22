@@ -6,13 +6,13 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:32:10 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/08 21:57:05 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/22 11:24:05 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_countword(char const *str, char c)
+int	ft_countword(char const *str, char c)
 {
 	int	i;
 	int	counter;

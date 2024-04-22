@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:04:27 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/22 06:05:24 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/22 11:24:16 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ char	**ft_split(char *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlen(char *str);
 int		ft_atoi(const char *str);
+int		ft_countword(char const *str, char c);
 
 void	s_free(t_stack **head);
 int		ft_2dfree(char **s);

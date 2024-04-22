@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:12:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/22 08:25:50 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/22 11:45:53 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	pushfirstcase(t_stack **a, char **av)
 	while (i >= 0)
 	{
 		if (!checkvalidity(av[i]))
-			exit(EXIT_FAILURE);
+			printerror(*a);
 		pushtostack(a, ft_atoi(av[i]));
 		i--;
 	}
@@ -32,15 +32,25 @@ void	pushfirstcase(t_stack **a, char **av)
 
 void	pushsecondcase(t_stack **a, int ac, char **av)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	**args;
 
 	i = 0;
 	i = ac - 1;
+	args = NULL;
 	while (i > 0)
 	{
-		if (!checkvalidity(av[i]))
-			exit(EXIT_FAILURE);
-		pushtostack (a, ft_atoi(av[i]));
+		j = ft_countword(av[i], ' ');
+		if (!j)
+			printerror(*a);
+		args = ft_split(av[i], ' ');
+		while (--j >= 0)
+		{
+			if (!checkvalidity(args[j]))
+				printerror(*a);
+			pushtostack (a, ft_atoi(args[j]));
+		}
 		i--;
 	}
 	set_position(*a);

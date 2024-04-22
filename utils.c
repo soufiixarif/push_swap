@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:09:58 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/21 17:29:25 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/22 11:27:58 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	s_free(t_stack **head)
 void	printerror(t_stack *a)
 {
 	s_free(&a);
-	fprintf(stderr, "khroj f7alek");
+	fprintf(stderr, "Error\n");
 	exit(EXIT_FAILURE);
 }
 
