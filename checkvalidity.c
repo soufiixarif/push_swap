@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:15:44 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/13 16:32:07 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/22 06:06:29 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,24 @@ int	checkvalidity(char *s)
 	if (!nb_content(s, len, i))
 		return (0);
 	return (1);
+}
+
+void	checkdouble(t_stack *a)
+{
+	t_stack	*tmp;
+
+	while (a)
+	{
+		tmp = a->next;
+		while (tmp)
+		{
+			if (a->n == tmp->n)
+			{
+				printf("Error double value found\n");
+				exit(EXIT_FAILURE);
+			}
+			tmp = tmp->next;
+		}
+		a = a->next;
+	}
 }

@@ -1,34 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkdouble.c                                      :+:      :+:    :+:   */
+/*   sortingmore2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 07:29:55 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/13 16:14:43 by sarif            ###   ########.fr       */
+/*   Created: 2024/04/21 19:54:11 by sarif             #+#    #+#             */
+/*   Updated: 2024/04/21 19:54:49 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	checkdouble(t_stack *a)
+int	close_to_top(t_stack **b, int index)
 {
-	t_stack	*tmp;
+	t_stack	*ptr;
+	int		size;
+	int		i;
 
-	while (a)
+	i = 0;
+	ptr = *b;
+	size = stacklen(*b);
+	while (ptr && i++ < (size / 2))
 	{
-		tmp = a->next;
-		while (tmp)
-		{
-			if (a->n == tmp->n)
-			{
-				printf("Error double value found\n");
-				// s_free(&a);
-				exit(EXIT_FAILURE);
-			}
-			tmp = tmp->next;
-		}
-		a = a->next;
+		if (ptr->idx == index)
+			return (1);
+		ptr = ptr->next;
 	}
+	return (0);
+}
+
+int	is_sorted(t_stack **a)
+{
+	t_stack	*ptr;
+
+	ptr = *a;
+	while (ptr && ptr->next)
+	{
+		if (ptr->idx > ptr->next->idx)
+			return (1);
+		ptr = ptr->next;
+	}
+	return (0);
 }

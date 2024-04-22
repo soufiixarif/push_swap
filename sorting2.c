@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:04:26 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/18 20:50:10 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/21 20:19:02 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	make_it_top(t_stack **a, t_stack **b, int pos, int min)
 		ptr = ptr->next;
 	}
 }
-
 
 int	max(t_stack **a)
 {
