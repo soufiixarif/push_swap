@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:12:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/21 20:17:51 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/22 08:25:50 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int	main(int ac, char **av)
 	else if (ac > 2)
 		pushsecondcase(&a, ac, av);
 	checkdouble(a);
-	sorting(&a, &b);
+	if (!is_sorted(&a))
+		sorting(&a, &b);
 	s_free(&a);
 }

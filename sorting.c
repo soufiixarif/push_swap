@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 15:13:17 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/21 20:18:48 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/22 08:27:25 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sortingmore(t_stack **a, t_stack **b)
 	lastchunkpush(a, b, len * 3 / 4, len);
 	sortingthree(a);
 	makeorder(a, b);
-	while (is_sorted(a))
+	while (!is_sorted(a))
 	{
 		rra(a, 1);
 	}
@@ -72,7 +72,7 @@ void	sorting(t_stack **a, t_stack **b)
 
 	len = stacklen(*a);
 	indexing(*a);
-	if (len == 3)
+	if (len <= 3)
 		sortingthree(a);
 	else if (len <= 5)
 		sortingfive(a, b);

@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 19:54:11 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/21 19:54:49 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/22 08:25:35 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int	is_sorted(t_stack **a)
 	ptr = *a;
 	while (ptr && ptr->next)
 	{
-		if (ptr->idx > ptr->next->idx)
-			return (1);
+		if (ptr->n > ptr->next->n)
+			return (0);
 		ptr = ptr->next;
 	}
-	return (0);
+	return (1);
 }
