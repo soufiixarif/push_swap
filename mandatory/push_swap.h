@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:04:27 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/22 11:24:16 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/23 21:02:04 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef struct stack_s
 {
-	int				n;
+	long			n;
 	int				position;
 	int				idx;
 	int				check;
@@ -27,7 +27,7 @@ typedef struct stack_s
 	struct stack_s	*next;
 }	t_stack;
 
-void	pushtostack(t_stack **head, int data);
+void	pushtostack(t_stack **head, long data);
 void	printerror(t_stack *a);
 int		checkvalidity(char *s);
 void	sorting(t_stack **a, t_stack **b);
@@ -73,7 +73,7 @@ void	ft_bzero(void *s, size_t n);
 char	**ft_split(char *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlen(char *str);
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 int		ft_countword(char const *str, char c);
 
 void	s_free(t_stack **head);

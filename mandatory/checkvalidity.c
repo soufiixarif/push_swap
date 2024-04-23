@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:15:44 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/23 11:12:43 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/23 20:57:02 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,13 @@ void	checkdouble(t_stack *a)
 
 	while (a)
 	{
+		if (a->n < -2147483648 || a->n > 2147483647)
+			printerror(a);
 		tmp = a->next;
 		while (tmp)
 		{
 			if (a->n == tmp->n)
-			{
 				printerror(a);
-				exit(EXIT_FAILURE);
-			}
 			tmp = tmp->next;
 		}
 		a = a->next;
