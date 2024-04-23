@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:09:58 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/22 11:27:58 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/23 09:55:42 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	s_free(t_stack **head)
 void	printerror(t_stack *a)
 {
 	s_free(&a);
-	fprintf(stderr, "Error\n");
+	write(2, "Error\n", 7);
 	exit(EXIT_FAILURE);
 }
 

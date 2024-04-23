@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:23:52 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/21 20:14:28 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/23 10:01:18 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	sa(t_stack **a, int checker)
 	top2->next = top1;
 	*a = top2;
 	if (checker == 1)
-		printf("sa\n");
+		write(1, "sa\n", 3);
 }
 
 void	sb(t_stack **b, int checker)
@@ -49,14 +49,14 @@ void	sb(t_stack **b, int checker)
 	top2->next = top1;
 	*b = top2;
 	if (checker == 1)
-		printf("sb\n");
+		write(1, "sb\n", 3);
 }
 
 void	ss(t_stack **a, t_stack **b)
 {
 	sa(a, 0);
 	sb(b, 0);
-	printf("ss\n");
+	write(1, "ss\n", 3);
 }
 
 void	pa(t_stack **a, t_stack **b)
@@ -72,7 +72,7 @@ void	pa(t_stack **a, t_stack **b)
 	ptr->next = *a;
 	ptr->prev = NULL;
 	*a = ptr;
-	printf("pa\n");
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack **a, t_stack **b)
@@ -88,5 +88,5 @@ void	pb(t_stack **a, t_stack **b)
 	ptr->next = *b;
 	ptr->prev = NULL;
 	*b = ptr;
-	printf("pb\n");
+	write(1, "pb\n", 3);
 }

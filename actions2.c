@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/21 19:37:05 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/21 20:14:46 by sarif            ###   ########.fr       */
+/*   Created: 2023/03/21 19:37:04 by sarif             #+#    #+#             */
+/*   Updated: 2024/04/23 10:01:55 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ra(t_stack **a, int checker)
 	(*a)->prev = NULL;
 	ptr->next->next = NULL;
 	if (checker == 1)
-		printf("ra\n");
+		write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **b, int checker)
@@ -45,14 +45,14 @@ void	rb(t_stack **b, int checker)
 	(*b)->prev = NULL;
 	ptr->next->next = NULL;
 	if (checker == 1)
-		printf("rb\n");
+		write(1, "rb\n", 3);
 }
 
 void	rr(t_stack **a, t_stack **b)
 {
 	ra(a, 0);
 	rb(b, 0);
-	printf("rr\n");
+	write(1, "rr\n", 3);
 }
 
 void	rra(t_stack **a, int checker)
@@ -70,7 +70,7 @@ void	rra(t_stack **a, int checker)
 	ptr->prev->next = NULL;
 	(*a)->prev = NULL;
 	if (checker == 1)
-		printf("rra\n");
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b, int checker)
@@ -88,5 +88,5 @@ void	rrb(t_stack **b, int checker)
 	ptr->prev->next = NULL;
 	(*b)->prev = NULL;
 	if (checker == 1)
-		printf("rrb\n");
+		write(1, "rrb\n", 4);
 }

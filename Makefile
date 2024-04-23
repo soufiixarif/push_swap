@@ -10,6 +10,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	rm -f $(OBJ)
 
 %.o: %.c push_swap.h Makefile
 	$(CC) $(FLAGS) -c $< -o $@

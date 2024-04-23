@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:15:44 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/22 06:06:29 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/23 11:12:43 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	checkdouble(t_stack *a)
 		{
 			if (a->n == tmp->n)
 			{
-				printf("Error double value found\n");
+				printerror(a);
 				exit(EXIT_FAILURE);
 			}
 			tmp = tmp->next;

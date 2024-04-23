@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:12:25 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/22 11:45:53 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/23 11:44:40 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ void	pushsecondcase(t_stack **a, int ac, char **av)
 	int		j;
 	char	**args;
 
-	i = 0;
-	i = ac - 1;
+	i = ac;
 	args = NULL;
-	while (i > 0)
+	while (--i > 0)
 	{
 		j = ft_countword(av[i], ' ');
 		if (!j)
@@ -48,10 +47,13 @@ void	pushsecondcase(t_stack **a, int ac, char **av)
 		while (--j >= 0)
 		{
 			if (!checkvalidity(args[j]))
+			{
+				ft_2dfree(args);
 				printerror(*a);
+			}
 			pushtostack (a, ft_atoi(args[j]));
 		}
-		i--;
+		ft_2dfree(args);
 	}
 	set_position(*a);
 }
@@ -62,10 +64,7 @@ void	pushtostack(t_stack **head, int data)
 
 	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (new_node == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed");
-		exit(EXIT_FAILURE);
-	}
+		printerror(*head);
 	if (*head != NULL)
 		(*head)->prev = new_node;
 	new_node->n = data;
@@ -86,8 +85,9 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
+	// atexit(f);
 	if (ac == 1 || !av[1][0])
-		return (1);
+		return (0);
 	if (ac == 2)
 		pushfirstcase(&a, av);
 	else if (ac > 2)
