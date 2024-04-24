@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftfun2.c                                        :+:      :+:    :+:   */
+/*   libftfun2_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:55:34 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/24 00:12:26 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/24 20:24:08 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 static int	ft_check_sign(const char *str, int *i)
 {
@@ -46,4 +46,30 @@ long	ft_atoi(const char *str)
 		i++;
 	}
 	return ((r * s));
+}
+
+int	is_sorted(t_stack *a)
+{
+	t_stack	*ptr;
+
+	ptr = a;
+	while (ptr && ptr->next)
+	{
+		if (ptr->n > ptr->next->n)
+			return (0);
+		ptr = ptr->next;
+	}
+	return (1);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != 0 && s2[i] != 0)
+	{
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }

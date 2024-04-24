@@ -4,5 +4,8 @@
         "activityBar.background": "#193136",
         "titleBar.activeBackground": "#23454C",
         "titleBar.activeForeground": "#F7FAFB"
+    },
+    "files.associations": {
+        "push_swap.h": "c"
     }
 }
