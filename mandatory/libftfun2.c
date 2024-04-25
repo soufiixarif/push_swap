@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:55:34 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/24 00:12:26 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/24 20:30:51 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ long	ft_atoi(const char *str)
 	int		i;
 	long	r;
 	long	s;
-	long	tmp;
 
 	i = 0;
 	s = 1;
@@ -41,7 +40,6 @@ long	ft_atoi(const char *str)
 	s = ft_check_sign(str, &i);
 	while ((str[i] >= '0' && str[i] <= '9') && str[i])
 	{
-		tmp = r;
 		r = (r * 10) + (str[i] - '0');
 		i++;
 	}

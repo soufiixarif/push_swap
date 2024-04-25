@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:04:27 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/24 20:24:25 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/25 20:00:37 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct stack_s
 void	pushtostack(t_stack **head, long data);
 void	printerror(t_stack *a);
 int		checkvalidity(char *s);
-int		stacklen(t_stack *a);
+int		stacklen(t_stack **a);
 void	checkdouble(t_stack *a);
 int		check_if_it_top(t_stack **a, int min);
 int		nb_content(char *s, int len, int i);
@@ -36,10 +36,10 @@ int		is_sorted(t_stack *a);
 void	pushsecondcase(t_stack **a, int ac, char **av);
 
 //bonus
-void	readfrominput(t_stack *a, t_stack *b);
-void	takedecision(t_stack *a, t_stack *b);
+void	readfrominput(t_stack **a, t_stack **b);
+void	takedecision(t_stack **a, t_stack **b);
 void	executeaction(char *action, t_stack **a, t_stack **b);
-void	exitprogramme(t_stack *a, t_stack *b);
+void	exitprogramme(t_stack **a, t_stack **b, char *action);
 
 /* actions */
 void	sa(t_stack **a, int checker);

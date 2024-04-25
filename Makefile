@@ -15,22 +15,28 @@ CC = cc
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-	rm -f $(OBJ)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@echo "\033[32mMAKING SUCCESSFULY ✅\033[0;37m"
 
-$(SRC_DIR)/%.o: $(SRC_DIR)/%.c push_swap.h Makefile
-	$(CC) $(FLAGS) -c $< -o $@
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.c $(SRC_DIR)/push_swap.h Makefile
+	@echo "compiling $@..."
+	@$(CC) $(FLAGS) -c $< -o $@
+	@clear
 
-$(B_DIR)/%.o : $(B_DIR)/%.c push_swap_bonus.h Makefile
-	%(CC) $(FLAGS) -c $< -o $@
+$(B_DIR)/%.o : $(B_DIR)/%.c $(B_DIR)/push_swap_bonus.h Makefile
+	@echo "compiling $@..."
+	@$(CC) $(FLAGS) -c $< -o $@
+	@clear
 clean:
-	rm -f $(OBJ) $(B_OBJ)
+	@rm -f $(OBJ) $(B_OBJ)
+	@echo "\033[33mcleaning objects 🧼"
 
 fclean: clean
-	rm -f $(NAME) $(B_NAME)
+	@rm -f $(NAME) $(B_NAME)
+	@echo "\033[31mremoving exectable file ❌\033[0;37m"
 
 re: fclean all
 
 bonus : $(B_OBJ)
-	$(CC) $(FLAGS) $(B_OBJ) -o $ $(B_NAME)
-	rm -f $(B_OBJ)
+	@$(CC) $(FLAGS) $(B_OBJ) -o $(B_NAME)
+	@echo "\033[32mMAKING BONUS SUCCESSFULY ✅\033[0;37m"

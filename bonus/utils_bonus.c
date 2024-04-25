@@ -6,7 +6,7 @@
 /*   By: sarif <sarif@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:09:58 by sarif             #+#    #+#             */
-/*   Updated: 2024/04/24 20:17:10 by sarif            ###   ########.fr       */
+/*   Updated: 2024/04/25 20:42:06 by sarif            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	s_free(t_stack **head)
 		free(*head);
 		*head = tmp;
 	}
+	(*head) = NULL;
 }
 
 void	printerror(t_stack *a)
@@ -31,13 +32,13 @@ void	printerror(t_stack *a)
 	exit(EXIT_FAILURE);
 }
 
-int	stacklen(t_stack *a)
+int	stacklen(t_stack **a)
 {
 	t_stack	*tmp;
 	int		counter;
 
 	counter = 0;
-	tmp = a;
+	tmp = *a;
 	while (tmp)
 	{
 		tmp = tmp->next;
